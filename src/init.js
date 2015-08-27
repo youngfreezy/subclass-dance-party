@@ -26,35 +26,32 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    window.dancers.push(dancer);
+
     $('body').append(dancer.$node);
+    window.$dancers = document.getElementsByClassName("dancer");
+    window.dancers.push(dancer);
   });
 
   $(document).on("click", ".lineUpDancersButton", function(event){
+    debugger
     // var dancerChangerFunctionName = $(this).data("dancer-changer-function-name");
     // var dancerChangerFunction = window[dancerChangerFunctionName]();
 
-    // dancerChangerFunction();
 
     for (var i = 0; i < window.dancers.length; i++) {
       // save a position 40px to the right of previous element
       var position = i*40+'px';
-      // interrupt and break out of animation cycle
-      dancers[i].$node.finish();
       // reposition node into a horizontal line
-      dancers[i].$node.css({"left": position, "top": "400px"});
+      dancers[i].$node.finish().animate({"left": position, "top": "400px"}, 1500);
       // interrupt the Timeout cycle set when node was instantiated
       clearTimeout(dancers[i].myTimeOut);
       // if node is toggled off, toggle on
-      if (dancers[i]._toggled) {
+      if (dancers[i]._toggled === false) {
         dancers[i].$node.toggle();
-        dancers[i]._toggled = true;
+        dancers[i]._toggled = !dancers[i]._toggled;
       }
-      // $dancers[i].setPosition(300, i*30);
 
-      // $( "div.example" ).css( "width", function( index ) {
-      //   return index * 50;
-      // });
+
 
     }
   });

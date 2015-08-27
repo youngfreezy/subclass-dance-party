@@ -1,6 +1,7 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   this.myTimeOut;
+  this._toggled = true;
   // copy over properties from Dancer()
   
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
@@ -25,7 +26,7 @@ makeBlinkyDancer.prototype.step = function(){
 
 var SmoothDancer = function (top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$pizza = $('<img src="pizza.gif" style="width:55px; height:55px">');
+  this.$pizza = $('<img src="pizza.gif" style="width:70px; height:70px">');
   this.$node.append(this.$pizza);
   this.$node.css({border: 'none'});
 
@@ -54,7 +55,6 @@ MoonWalker.prototype.constructor = MoonWalker;
 
 MoonWalker.prototype.step = function () {
   Dancer.prototype.step.call(this);
-
   this.$node.animate({left: '0px'}, 9000);
 }
 
