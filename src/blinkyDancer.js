@@ -1,5 +1,6 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.myTimeOut;
   // copy over properties from Dancer()
   
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
@@ -19,6 +20,7 @@ makeBlinkyDancer.prototype.step = function(){
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.toggle();
+  this._toggled = !this._toggled;
 };
 
 var SmoothDancer = function (top, left, timeBetweenSteps) {
