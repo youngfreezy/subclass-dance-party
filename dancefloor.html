@@ -7,15 +7,18 @@
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
   </head>
-  <body>
+  <body class="hoverZone">
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton zangief" data-dancer-maker-function-name="MoonWalker">add a moonwalker</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SmoothDancer">add a smooth criminal</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    
       <a href="#" class="lineUpDancersButton" data-dancer-changer-function-name="lineUp">Conga Line!</a>
-
+      <div class="test">This is the content!  Hover please</div>
       </div>
     <script src="src/init.js"></script>
+    <script type="text/javascript">
+      $('.test').mouseover(function(){console.log('Mouseover working as expected')})
+    </script>
   </body>
 </html>
